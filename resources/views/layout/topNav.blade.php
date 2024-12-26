@@ -2,8 +2,7 @@
     Nav header start
 ***********************************-->
 <div class="nav-header">
-    {{-- <img class="logo-abbr" src="{{ asset('images/logo.png') }}" alt="not have">
-    <img class="logo-compact" src="{{ asset('images/logo-text.png') }}" alt="not have">
+    {{-- 
     <img class="brand-title" src="{{ asset('images/logo-text.png') }}" alt="not have"> --}}
 </a>
     </a>
