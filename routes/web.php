@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RideActivityController;
 
 Route::get('/', [AuthController::class, 'index'])->name('auth.login');
-Route::post('/auth/login', [AuthController::class, 'loginAuth'])->name('auth.login');
+Route::post('/auth/login', [AuthController::class, 'loginAdminAuth'])->name('auth.login');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/auth/forgetPassword', [AuthController::class, 'forgetPassword'])->name('auth.forget');
 Route::post('/auth/updatePassword', [AuthController::class, 'update'])->name('admin.auth.post');

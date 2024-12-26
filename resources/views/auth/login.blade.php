@@ -104,11 +104,11 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <form action="{{route('auth.post')}}" method="post">
+                                    <form action="{{route('auth.login')}}" method="post">
                                         @csrf
                                         <div class="form-group">
                                             <label style="font-size:20px;color:#343957"><b>User Name</b></label>
-                                            <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter User Name" required>
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter User Name" required>
                                         </div>
                                         <div class="form-group">
                                             <label style="font-size:20px;color:#343957"><b>Password</b></label>

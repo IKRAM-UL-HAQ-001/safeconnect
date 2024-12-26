@@ -42,10 +42,10 @@ class AuthController extends Controller
                     ],
                     'token' => $token,
                     'role_based_redirect' => $user->role === 'admin'
-                        ? 'admin_dashboard_url'
+                        ? 'admin.dashboard'
                         : ($user->role === 'driver'
-                            ? 'driver_dashboard_url'
-                            : 'passenger_dashboard_url'),
+                            ? ''
+                            : ''),
                 ],
             ], 200);
         }
@@ -55,6 +55,27 @@ class AuthController extends Controller
         ], 401);
     }
 
+    public function loginAdminAuth(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($request->only('name', 'password'))) {
+            $user = Auth::user();
+            if ($user->role === "admin") {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === "driver") {
+                return redirect()->route('');
+            } else{
+                return redirect()->route('');
+            }
+        }
+        return back()->withErrors([
+            'user_name' => 'The provided credentials do not match our records.',
+        ]);
+    }
 
     public function register(Request $request)
     {
